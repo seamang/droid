@@ -65,7 +65,7 @@ public class ConfigureDefaultSignatureFileVersionCommand implements DroidCommand
     private DroidGlobalConfig globalConfig;
     
     private int signatureFileVersion;
-    private SignatureType type;
+    private SignatureType type = SignatureType.BINARY; // default;
     
     /**
      * 
