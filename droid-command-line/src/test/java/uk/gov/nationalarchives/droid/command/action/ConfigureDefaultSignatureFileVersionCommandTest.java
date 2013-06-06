@@ -74,7 +74,11 @@ public class ConfigureDefaultSignatureFileVersionCommandTest {
         
         signatureManager = mock(SignatureManager.class);
         command.setSignatureManager(signatureManager);
-        command.setType(SignatureType.BINARY);
+        // the default (and currently only) type supported is binary; 
+        // should function without explicit setting
+        // will need further tests if support for other types added
+        // GS 20130606
+        // command.setType(SignatureType.BINARY);
         
         globalConfig = mock(DroidGlobalConfig.class);
         command.setGlobalConfig(globalConfig);
