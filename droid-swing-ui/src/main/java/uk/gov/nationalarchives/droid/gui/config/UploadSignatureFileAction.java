@@ -51,7 +51,7 @@ public class UploadSignatureFileAction {
     
     private String fileName;
     private boolean useAsDefault;
-    private SignatureType type;
+    private SignatureType type = SignatureType.BINARY; // default
     
     /**
      * Executes this action.
