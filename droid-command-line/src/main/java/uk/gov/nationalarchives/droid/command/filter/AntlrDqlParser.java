@@ -69,13 +69,18 @@ public class AntlrDqlParser implements DqlFilterParser {
             CommonTree values = (CommonTree) children.get(2);
             
             FilterCriterion criterion;
-            
-            final List<CommonTree> setValues = values.getChildren();
-            if (setValues == null) {
+
+            int childCount = values.getChildCount();
+
+            if (childCount == 0) { //values is a leaf
                 String dqlValue = values.getText();
                 criterion = DqlCriterionFactory.newCriterion(dqlField, dqlOperator, 
                         fromDqlString(dqlValue));
-            } else {
+            } else { // gather the children
+                List<CommonTree> setValues = new ArrayList<CommonTree>();
+                for (int i = 0; i < childCount; i++) {
+                    setValues.add((CommonTree) values.getChild(i));
+                }
                 Collection<String> dqlValues = new ArrayList<String>();
                 for (CommonTree element : setValues) {
                     dqlValues.add(element.getText());

@@ -518,7 +518,6 @@ public class DroidCommandLineTest {
         commandLine.processExecution();
     }
 
-    @Ignore("BNO - fails in Java 8 build when DroidCommandLine calls LogFactory.getLog")
     @Test
     public void testDisplayAllSignatureFiles() throws CommandLineException {
         
